@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4588E9086143CAB5C265DC2E = {isa = PBXBuildFile; fileRef = 05F5116A49979BD011ACA28B /* ChurchGoApp.swift */; };
+		6D36E7CB2A49CE9DF1136F0F = {isa = PBXBuildFile; fileRef = F2253170465A0B433AC3A8B2 /* ChunkyButton.swift */; };
+		4354A3167C533A704B7816AE = {isa = PBXBuildFile; fileRef = A971CE0FB8F334700D0321D5 /* ChurchPin.swift */; };
+		7A50D7A2591717DB3DE60E23 = {isa = PBXBuildFile; fileRef = 96F0722D82EE4E6DB02FD48A /* ProgressRing.swift */; };
+		F7D0964CF4A4DD9D540CF3D3 = {isa = PBXBuildFile; fileRef = 756EF71093F5776691437641 /* ShimmerCard.swift */; };
+		8A39749FC99F7F3E9B79D096 = {isa = PBXBuildFile; fileRef = 737F2424A1B4419FAF43CDC5 /* StreakBadge.swift */; };
+		18CE5956732FC82DA87F6AAD = {isa = PBXBuildFile; fileRef = C93F6B87C3DF017E4C561D53 /* XPCounter.swift */; };
+		D366BE12D770797801618887 = {isa = PBXBuildFile; fileRef = 1ABC3E452B9D64E4FB2AD906 /* Colors.swift */; };
+		55473368C30AFE7146254591 = {isa = PBXBuildFile; fileRef = F7299037822B73AD9DE8856D /* Theme.swift */; };
+		EC43252FBA9445410B05AA1A = {isa = PBXBuildFile; fileRef = 71187BDD359022325D8D7E9A /* Typography.swift */; };
+		0E44F843A5C91B7DA2A2184A = {isa = PBXBuildFile; fileRef = 7642B4553DAA77E43451A1F1 /* View+Extensions.swift */; };
+		8C931BA8C5C1C39F0B24C9FE = {isa = PBXBuildFile; fileRef = F8010FFD3837CA215BA27763 /* Badge.swift */; };
+		1DC67F12E2BE446BAE7F24A0 = {isa = PBXBuildFile; fileRef = EC4E27D245A82232A8794F9E /* CheckIn.swift */; };
+		06E16F53AA42398866823FB8 = {isa = PBXBuildFile; fileRef = 425976EFCA79355408E4E479 /* Church.swift */; };
+		03CB12F93B8DAEAE8B18D228 = {isa = PBXBuildFile; fileRef = A24B8B0D7FDF1C167F1FE4D6 /* LeaderboardEntry.swift */; };
+		FC9A66FE9425C3EAEAEAC42D = {isa = PBXBuildFile; fileRef = 3923E27C95D967803F8F45CF /* User.swift */; };
+		06210C6199C5044CA37A7285 = {isa = PBXBuildFile; fileRef = 78580B4E47CCE24E28FF8BA5 /* ChurchService.swift */; };
+		13BC886E5A5ABC8A03F3ABF5 = {isa = PBXBuildFile; fileRef = 96583A27D7991674906A1872 /* GamificationService.swift */; };
+		8EC45FFEC5F1C72047415B6C = {isa = PBXBuildFile; fileRef = 4C323C4039D808AE9BE35A5B /* LocationService.swift */; };
+		4D2330E4C5C9471AABF1D34C = {isa = PBXBuildFile; fileRef = B318A41AFC6328F476C76B70 /* SupabaseService.swift */; };
+		800E375AD027E4E6FE3C2A0E = {isa = PBXBuildFile; fileRef = 7A2453A3CD1FEF3D31856CCC /* ConfettiShim.swift */; };
+		4C9BB6E758FB850E2A2CE81B = {isa = PBXBuildFile; fileRef = DCC56F569682050A8BCC5930 /* SupabaseShim.swift */; };
+		5EBA5EEB917F93ED32EF4FE9 = {isa = PBXBuildFile; fileRef = 44E54A04FED81088766D582F /* CheckInViewModel.swift */; };
+		BA6BDA883BBDF1852F5D9F45 = {isa = PBXBuildFile; fileRef = 03E16F91D8BB3849ACEAFBDB /* LeaderboardViewModel.swift */; };
+		216ACB8948105CD24110991E = {isa = PBXBuildFile; fileRef = D711C35E73362179E8FEBE96 /* MapViewModel.swift */; };
+		C936DD84828D99A8D9DBAD9D = {isa = PBXBuildFile; fileRef = 578DD13A64614F0D14BA0403 /* ProfileViewModel.swift */; };
+		53AB50512F55CCA202F5C3F4 = {isa = PBXBuildFile; fileRef = DE18EB83D9D745DF12C63040 /* BadgesView.swift */; };
+		201568721830C298237B65E6 = {isa = PBXBuildFile; fileRef = 9F5139185B8F2708D1055C2A /* CheckInCelebrationView.swift */; };
+		5B132C9001EC2BBEFB2C4D1C = {isa = PBXBuildFile; fileRef = 3A2C4DCD1F4812819155AF5A /* ChurchDetailView.swift */; };
+		08D700CC5AA09406F5E895E6 = {isa = PBXBuildFile; fileRef = 5A00079255719882BB9C6E85 /* LeaderboardView.swift */; };
+		FFC5222FEA88DD0240232C04 = {isa = PBXBuildFile; fileRef = 6E9E1B4FC8E307D346B32427 /* MapView.swift */; };
+		6860A2A43AE661941307E1D9 = {isa = PBXBuildFile; fileRef = 7176ED1C6B21DF6686931E3D /* NearbyChurchSheet.swift */; };
+		C87E9C8829253B05C950CA0F = {isa = PBXBuildFile; fileRef = A799DF0B8D426223F13F8078 /* OnboardingView.swift */; };
+		6BE5527D956B147DF74B650A = {isa = PBXBuildFile; fileRef = 001492D922018DE26F3A21E9 /* ProfileView.swift */; };
+		B7728936F501F4ABD253C5D3 = {isa = PBXBuildFile; fileRef = 5AADA6832ECEE8EF93228E79 /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		05F5116A49979BD011ACA28B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchGoApp.swift; sourceTree = "<group>"; };
+		F2253170465A0B433AC3A8B2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChunkyButton.swift; sourceTree = "<group>"; };
+		A971CE0FB8F334700D0321D5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchPin.swift; sourceTree = "<group>"; };
+		96F0722D82EE4E6DB02FD48A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
+		756EF71093F5776691437641 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerCard.swift; sourceTree = "<group>"; };
+		737F2424A1B4419FAF43CDC5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakBadge.swift; sourceTree = "<group>"; };
+		C93F6B87C3DF017E4C561D53 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCounter.swift; sourceTree = "<group>"; };
+		1ABC3E452B9D64E4FB2AD906 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F7299037822B73AD9DE8856D = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		71187BDD359022325D8D7E9A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		7642B4553DAA77E43451A1F1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		F8010FFD3837CA215BA27763 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		EC4E27D245A82232A8794F9E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
+		425976EFCA79355408E4E479 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Church.swift; sourceTree = "<group>"; };
+		A24B8B0D7FDF1C167F1FE4D6 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardEntry.swift; sourceTree = "<group>"; };
+		3923E27C95D967803F8F45CF = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		78580B4E47CCE24E28FF8BA5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchService.swift; sourceTree = "<group>"; };
+		96583A27D7991674906A1872 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamificationService.swift; sourceTree = "<group>"; };
+		4C323C4039D808AE9BE35A5B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		B318A41AFC6328F476C76B70 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseService.swift; sourceTree = "<group>"; };
+		7A2453A3CD1FEF3D31856CCC = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiShim.swift; sourceTree = "<group>"; };
+		DCC56F569682050A8BCC5930 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseShim.swift; sourceTree = "<group>"; };
+		44E54A04FED81088766D582F = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewModel.swift; sourceTree = "<group>"; };
+		03E16F91D8BB3849ACEAFBDB = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
+		D711C35E73362179E8FEBE96 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		578DD13A64614F0D14BA0403 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		DE18EB83D9D745DF12C63040 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
+		9F5139185B8F2708D1055C2A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInCelebrationView.swift; sourceTree = "<group>"; };
+		3A2C4DCD1F4812819155AF5A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchDetailView.swift; sourceTree = "<group>"; };
+		5A00079255719882BB9C6E85 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		6E9E1B4FC8E307D346B32427 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		7176ED1C6B21DF6686931E3D = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyChurchSheet.swift; sourceTree = "<group>"; };
+		A799DF0B8D426223F13F8078 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		001492D922018DE26F3A21E9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		5AADA6832ECEE8EF93228E79 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6AFB374B229C79B0F58A32FA = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChurchGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		424153ED3CD079DB4DB459AF = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		518DA81DB9B99529C0C0AEBE = {
+			isa = PBXGroup;
+			children = (
+				21210CAB3FB42E8F56229A38 /* ChurchGo */,
+				2F3A6B1E78F896718625FF06 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		21210CAB3FB42E8F56229A38 = {
+			isa = PBXGroup;
+			children = (
+				D1D0524B025E57AFFF263442 /* App */,
+				86B30826509D60ACFBFFFEC0 /* Components */,
+				5FDB91368D7DDA2418B6CB65 /* Design */,
+				07D852466CA0BD085B0AFB3B /* Extensions */,
+				A1C86A29E589D48EC70B6A32 /* Models */,
+				609874F33224C0C09F1FEE42 /* Services */,
+				81A9824AD935CE4815601110 /* Shims */,
+				8C82CBDAB62AC804C92AACD0 /* ViewModels */,
+				38DF21AEF4612506D6BE5CBE /* Views */,
+			);
+			path = ChurchGo;
+			sourceTree = "<group>";
+		};
+		D1D0524B025E57AFFF263442 = {
+			isa = PBXGroup;
+			children = (
+				05F5116A49979BD011ACA28B /* ChurchGoApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		86B30826509D60ACFBFFFEC0 = {
+			isa = PBXGroup;
+			children = (
+				F2253170465A0B433AC3A8B2 /* ChunkyButton.swift */,
+				A971CE0FB8F334700D0321D5 /* ChurchPin.swift */,
+				96F0722D82EE4E6DB02FD48A /* ProgressRing.swift */,
+				756EF71093F5776691437641 /* ShimmerCard.swift */,
+				737F2424A1B4419FAF43CDC5 /* StreakBadge.swift */,
+				C93F6B87C3DF017E4C561D53 /* XPCounter.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5FDB91368D7DDA2418B6CB65 = {
+			isa = PBXGroup;
+			children = (
+				1ABC3E452B9D64E4FB2AD906 /* Colors.swift */,
+				F7299037822B73AD9DE8856D /* Theme.swift */,
+				71187BDD359022325D8D7E9A /* Typography.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		07D852466CA0BD085B0AFB3B = {
+			isa = PBXGroup;
+			children = (
+				7642B4553DAA77E43451A1F1 /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A1C86A29E589D48EC70B6A32 = {
+			isa = PBXGroup;
+			children = (
+				F8010FFD3837CA215BA27763 /* Badge.swift */,
+				EC4E27D245A82232A8794F9E /* CheckIn.swift */,
+				425976EFCA79355408E4E479 /* Church.swift */,
+				A24B8B0D7FDF1C167F1FE4D6 /* LeaderboardEntry.swift */,
+				3923E27C95D967803F8F45CF /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		609874F33224C0C09F1FEE42 = {
+			isa = PBXGroup;
+			children = (
+				78580B4E47CCE24E28FF8BA5 /* ChurchService.swift */,
+				96583A27D7991674906A1872 /* GamificationService.swift */,
+				4C323C4039D808AE9BE35A5B /* LocationService.swift */,
+				B318A41AFC6328F476C76B70 /* SupabaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		81A9824AD935CE4815601110 = {
+			isa = PBXGroup;
+			children = (
+				7A2453A3CD1FEF3D31856CCC /* ConfettiShim.swift */,
+				DCC56F569682050A8BCC5930 /* SupabaseShim.swift */,
+			);
+			path = Shims;
+			sourceTree = "<group>";
+		};
+		8C82CBDAB62AC804C92AACD0 = {
+			isa = PBXGroup;
+			children = (
+				44E54A04FED81088766D582F /* CheckInViewModel.swift */,
+				03E16F91D8BB3849ACEAFBDB /* LeaderboardViewModel.swift */,
+				D711C35E73362179E8FEBE96 /* MapViewModel.swift */,
+				578DD13A64614F0D14BA0403 /* ProfileViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		38DF21AEF4612506D6BE5CBE = {
+			isa = PBXGroup;
+			children = (
+				840FADAD86DF6C40ADFE6AD8 /* Badges */,
+				97936C7EBF4681C8B7B44235 /* CheckIn */,
+				31F6357342D63B086E9E375A /* ChurchDetail */,
+				CD26A4DAC8422F5315816E4C /* Leaderboard */,
+				1CC451A977A3FCF889142C45 /* Map */,
+				E304E7730958EE906BB34314 /* Onboarding */,
+				2FAEDE3E851F017B809CB742 /* Profile */,
+				0D7626413CCF860C82715CA5 /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		840FADAD86DF6C40ADFE6AD8 = {
+			isa = PBXGroup;
+			children = (
+				DE18EB83D9D745DF12C63040 /* BadgesView.swift */,
+			);
+			path = Badges;
+			sourceTree = "<group>";
+		};
+		97936C7EBF4681C8B7B44235 = {
+			isa = PBXGroup;
+			children = (
+				9F5139185B8F2708D1055C2A /* CheckInCelebrationView.swift */,
+			);
+			path = CheckIn;
+			sourceTree = "<group>";
+		};
+		31F6357342D63B086E9E375A = {
+			isa = PBXGroup;
+			children = (
+				3A2C4DCD1F4812819155AF5A /* ChurchDetailView.swift */,
+			);
+			path = ChurchDetail;
+			sourceTree = "<group>";
+		};
+		CD26A4DAC8422F5315816E4C = {
+			isa = PBXGroup;
+			children = (
+				5A00079255719882BB9C6E85 /* LeaderboardView.swift */,
+			);
+			path = Leaderboard;
+			sourceTree = "<group>";
+		};
+		1CC451A977A3FCF889142C45 = {
+			isa = PBXGroup;
+			children = (
+				6E9E1B4FC8E307D346B32427 /* MapView.swift */,
+				7176ED1C6B21DF6686931E3D /* NearbyChurchSheet.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		E304E7730958EE906BB34314 = {
+			isa = PBXGroup;
+			children = (
+				A799DF0B8D426223F13F8078 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2FAEDE3E851F017B809CB742 = {
+			isa = PBXGroup;
+			children = (
+				001492D922018DE26F3A21E9 /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0D7626413CCF860C82715CA5 = {
+			isa = PBXGroup;
+			children = (
+				5AADA6832ECEE8EF93228E79 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2F3A6B1E78F896718625FF06 = {
+			isa = PBXGroup;
+			children = (
+				6AFB374B229C79B0F58A32FA /* ChurchGo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49ACFC07150C4E6E793AB5FD = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 354589B28580510B6EC24620;
+			buildPhases = (
+				7A70D71C385290AF96BF1031,
+				424153ED3CD079DB4DB459AF,
+				285BB1C1430063331E9F5DD0,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChurchGo;
+			productName = ChurchGo;
+			productReference = 6AFB374B229C79B0F58A32FA;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0E1DA8CF9C2D0CC155095EDD = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					49ACFC07150C4E6E793AB5FD = {
+						CreatedOnToolsVersion = 16.4;
+						DevelopmentTeam = 3M2R686D9V;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1F4E3D13C2320EDA50221924;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 518DA81DB9B99529C0C0AEBE;
+			productRefGroup = 2F3A6B1E78F896718625FF06;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49ACFC07150C4E6E793AB5FD,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		285BB1C1430063331E9F5DD0 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A70D71C385290AF96BF1031 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4588E9086143CAB5C265DC2E,
+				6D36E7CB2A49CE9DF1136F0F,
+				4354A3167C533A704B7816AE,
+				7A50D7A2591717DB3DE60E23,
+				F7D0964CF4A4DD9D540CF3D3,
+				8A39749FC99F7F3E9B79D096,
+				18CE5956732FC82DA87F6AAD,
+				D366BE12D770797801618887,
+				55473368C30AFE7146254591,
+				EC43252FBA9445410B05AA1A,
+				0E44F843A5C91B7DA2A2184A,
+				8C931BA8C5C1C39F0B24C9FE,
+				1DC67F12E2BE446BAE7F24A0,
+				06E16F53AA42398866823FB8,
+				03CB12F93B8DAEAE8B18D228,
+				FC9A66FE9425C3EAEAEAC42D,
+				06210C6199C5044CA37A7285,
+				13BC886E5A5ABC8A03F3ABF5,
+				8EC45FFEC5F1C72047415B6C,
+				4D2330E4C5C9471AABF1D34C,
+				800E375AD027E4E6FE3C2A0E,
+				4C9BB6E758FB850E2A2CE81B,
+				5EBA5EEB917F93ED32EF4FE9,
+				BA6BDA883BBDF1852F5D9F45,
+				216ACB8948105CD24110991E,
+				C936DD84828D99A8D9DBAD9D,
+				53AB50512F55CCA202F5C3F4,
+				201568721830C298237B65E6,
+				5B132C9001EC2BBEFB2C4D1C,
+				08D700CC5AA09406F5E895E6,
+				FFC5222FEA88DD0240232C04,
+				6860A2A43AE661941307E1D9,
+				C87E9C8829253B05C950CA0F,
+				6BE5527D956B147DF74B650A,
+				B7728936F501F4ABD253C5D3,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		92E165A9035A603BE73D2E62 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E1D3BBA94590957B0374D6E9 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F22D2FFCC45240A8FF5EBE4A = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "ChurchGo/Resources/PreviewContent";
+				DEVELOPMENT_TEAM = 3M2R686D9V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Church Go";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Church Go uses your location to verify nearby church visits.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.churchgo.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE4F802C632EAD717BA35062 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "ChurchGo/Resources/PreviewContent";
+				DEVELOPMENT_TEAM = 3M2R686D9V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Church Go";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Church Go uses your location to verify nearby church visits.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.churchgo.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F4E3D13C2320EDA50221924 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92E165A9035A603BE73D2E62,
+				E1D3BBA94590957B0374D6E9,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		354589B28580510B6EC24620 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F22D2FFCC45240A8FF5EBE4A,
+				FE4F802C632EAD717BA35062,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 0E1DA8CF9C2D0CC155095EDD;
+}

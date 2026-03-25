@@ -24,7 +24,7 @@ let package = Package(
                 "SDWebImageSwiftUI",
                 .product(name: "Supabase", package: "supabase-swift"),
             ],
-            path: "Sources/ChurchGo"
+            path: "ChurchGo"
         )
     ]
 )
