@@ -1,4 +1,6 @@
 import SwiftUI
+import UIKit
+
 
 struct NearbyChurchSheet: View {
     let churches: [Church]
@@ -84,11 +86,19 @@ struct NearbyChurchCard: View {
                             endPoint: .bottomTrailing
                         )
                     )
-                    .frame(height: 80)
 
-                Image(systemName: "building.columns.fill")
-                    .font(.system(size: 28))
-                    .foregroundStyle(isVisited ? Color.cgGold : Color.cgCrimson.opacity(0.5))
+                if let photoURL = church.photoURLValue {
+                    AsyncImage(url: photoURL) { image in
+                        image.resizable().scaledToFill()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                        .clipShape(RoundedRectangle(cornerRadius: Theme.radiusMD, style: .continuous))
+                } else {
+                    Image(systemName: "building.columns.fill")
+                        .font(.system(size: 28))
+                        .foregroundStyle(isVisited ? Color.cgGold : Color.cgCrimson.opacity(0.5))
+                }
 
                 if isVisited {
                     VStack {
@@ -103,6 +113,8 @@ struct NearbyChurchCard: View {
                     }
                 }
             }
+            .frame(height: 80)
+            .clipShape(RoundedRectangle(cornerRadius: Theme.radiusMD, style: .continuous))
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(church.name)
@@ -133,3 +145,15 @@ struct NearbyChurchCard: View {
     }
 }
 
+#Preview {
+    ZStack {
+        Color.cgBackground.ignoresSafeArea()
+        VStack {
+            Spacer()
+            NearbyChurchSheet(
+                churches: Church.mockList,
+                visitedIDs: [Church.mockList[0].id]
+            )
+        }
+    }
+}

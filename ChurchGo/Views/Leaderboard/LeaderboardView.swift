@@ -44,6 +44,11 @@ struct LeaderboardView: View {
             .task {
                 await viewModel.loadLeaderboard()
             }
+            .onChange(of: viewModel.selectedFilter) { _, _ in
+                Task {
+                    await viewModel.loadLeaderboard()
+                }
+            }
         }
     }
 
@@ -199,3 +204,6 @@ struct LeaderboardRow: View {
     }
 }
 
+#Preview {
+    LeaderboardView()
+}

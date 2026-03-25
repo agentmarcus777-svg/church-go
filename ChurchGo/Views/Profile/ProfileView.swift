@@ -10,6 +10,8 @@ struct ProfileView: View {
                     // Profile header
                     profileHeader
 
+                    xpProgressCard
+
                     // Stats grid
                     statsGrid
 
@@ -97,6 +99,49 @@ struct ProfileView: View {
             StreakBadge(streak: viewModel.user.streak, size: .medium)
         }
         .padding(.top, Theme.spacingMD)
+    }
+
+    private var xpProgressCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("XP Progress")
+                        .font(AppFont.headline)
+                        .foregroundStyle(Color.cgCharcoal)
+                    Text("\(viewModel.user.xp) / \(viewModel.user.xpForNextLevel) XP")
+                        .font(AppFont.caption)
+                        .foregroundStyle(Color.cgSecondaryText)
+                }
+
+                Spacer()
+
+                NavigationLink {
+                    LeaderboardView()
+                } label: {
+                    Label("Leaderboard", systemImage: "trophy.fill")
+                        .font(AppFont.caption)
+                        .fontWeight(.bold)
+                        .foregroundStyle(Color.cgCrimson)
+                }
+            }
+
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    Capsule()
+                        .fill(Color.cgCharcoal.opacity(0.08))
+
+                    Capsule()
+                        .fill(Color.cgSunriseGradient)
+                        .frame(width: max(geometry.size.width * viewModel.user.levelProgress, 18))
+                }
+            }
+            .frame(height: 16)
+
+            Text("Level \(viewModel.user.level + 1) unlocks bigger streak bonuses and more prestige.")
+                .font(AppFont.caption)
+                .foregroundStyle(Color.cgSecondaryText)
+        }
+        .cardStyle()
     }
 
     // MARK: - Stats Grid
@@ -221,3 +266,6 @@ struct BadgeMiniCard: View {
     }
 }
 
+#Preview {
+    ProfileView()
+}

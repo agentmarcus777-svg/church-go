@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @EnvironmentObject private var locationService: LocationService
     @State private var currentPage = 0
     @State private var isAnimating = false
     var onComplete: () -> Void = {}
@@ -19,10 +20,11 @@ struct OnboardingView: View {
             color: .cgGold
         ),
         OnboardingPage(
-            icon: "flame.fill",
-            title: "Build Your Streak",
-            subtitle: "Visit churches daily to maintain your streak. Follow in His footsteps.",
-            color: .cgDeepRed
+            icon: "location.fill",
+            title: "Check In On Location",
+            subtitle: "Enable location so Church Go can validate visits, unlock rewards, and guide you to the next church nearby.",
+            color: .cgDeepRed,
+            requiresLocation: true
         ),
     ]
 
@@ -73,6 +75,11 @@ struct OnboardingView: View {
                                     .foregroundStyle(Color.cgSecondaryText)
                                     .multilineTextAlignment(.center)
                                     .padding(.horizontal, Theme.spacingXL)
+
+                                if page.requiresLocation {
+                                    locationStatusCard
+                                        .padding(.horizontal, Theme.spacingLG)
+                                }
                             }
 
                             Spacer()
@@ -96,8 +103,12 @@ struct OnboardingView: View {
                     }
 
                     if currentPage == pages.count - 1 {
-                        ChunkyButton(title: "Get Started", icon: "arrow.right", style: .primary) {
-                            onComplete()
+                        ChunkyButton(
+                            title: locationService.authorizationStatus == .notDetermined ? "Enable Location" : "Start Exploring",
+                            icon: "arrow.right",
+                            style: .primary
+                        ) {
+                            handleFinalStep()
                         }
                         .transition(.scale.combined(with: .opacity))
                     } else {
@@ -121,6 +132,73 @@ struct OnboardingView: View {
             }
         }
     }
+
+    private var locationStatusCard: some View {
+        HStack(spacing: 12) {
+            Image(systemName: locationIcon)
+                .font(.system(size: 20, weight: .bold))
+                .foregroundStyle(Color.cgGold)
+                .frame(width: 42, height: 42)
+                .background(Color.cgGold.opacity(0.14))
+                .clipShape(RoundedRectangle(cornerRadius: Theme.radiusMD, style: .continuous))
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(locationTitle)
+                    .font(AppFont.headline)
+                    .foregroundStyle(Color.cgCharcoal)
+                Text(locationSubtitle)
+                    .font(AppFont.caption)
+                    .foregroundStyle(Color.cgSecondaryText)
+            }
+
+            Spacer()
+        }
+        .padding(Theme.cardPadding)
+        .background(Color.cgSurface)
+        .clipShape(RoundedRectangle(cornerRadius: Theme.radiusLG, style: .continuous))
+        .modifier(CardShadowModifier())
+    }
+
+    private var locationIcon: String {
+        switch locationService.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            return "location.fill"
+        case .denied, .restricted:
+            return "location.slash.fill"
+        default:
+            return "location.circle.fill"
+        }
+    }
+
+    private var locationTitle: String {
+        switch locationService.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            return "Location Ready"
+        case .denied, .restricted:
+            return "Location Disabled"
+        default:
+            return "Permission Needed"
+        }
+    }
+
+    private var locationSubtitle: String {
+        switch locationService.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            return "Church check-ins and nearby church discovery are enabled."
+        case .denied, .restricted:
+            return "You can still browse, but on-site check-ins stay locked until location access is restored in Settings."
+        default:
+            return "Church Go uses your location only to verify nearby visits and show churches around you."
+        }
+    }
+
+    private func handleFinalStep() {
+        if locationService.authorizationStatus == .notDetermined {
+            locationService.requestPermission()
+        }
+
+        onComplete()
+    }
 }
 
 // MARK: - Page Model
@@ -130,5 +208,10 @@ private struct OnboardingPage {
     let title: String
     let subtitle: String
     let color: Color
+    var requiresLocation: Bool = false
 }
 
+#Preview {
+    OnboardingView()
+        .environmentObject(LocationService())
+}

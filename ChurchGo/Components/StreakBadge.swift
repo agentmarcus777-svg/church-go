@@ -4,7 +4,7 @@ struct StreakBadge: View {
     let streak: Int
     var size: StreakSize = .medium
 
-    enum StreakSize {
+    enum StreakSize: Equatable {
         case small, medium, large
 
         var iconSize: CGFloat {
@@ -76,3 +76,13 @@ struct StreakBadge: View {
     }
 }
 
+#Preview {
+    VStack(spacing: 20) {
+        StreakBadge(streak: 7, size: .large)
+        StreakBadge(streak: 14, size: .medium)
+        StreakBadge(streak: 3, size: .small)
+        StreakBadge(streak: 0, size: .medium)
+    }
+    .padding()
+    .background(Color.cgBackground)
+}

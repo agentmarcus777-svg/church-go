@@ -36,6 +36,7 @@
 		53AB50512F55CCA202F5C3F4 = {isa = PBXBuildFile; fileRef = DE18EB83D9D745DF12C63040 /* BadgesView.swift */; };
 		201568721830C298237B65E6 = {isa = PBXBuildFile; fileRef = 9F5139185B8F2708D1055C2A /* CheckInCelebrationView.swift */; };
 		5B132C9001EC2BBEFB2C4D1C = {isa = PBXBuildFile; fileRef = 3A2C4DCD1F4812819155AF5A /* ChurchDetailView.swift */; };
+		D63A5101722EA5077A2BDCB7 = {isa = PBXBuildFile; fileRef = 52CD57388E50FFF5C1CF9C20 /* CollectionView.swift */; };
 		08D700CC5AA09406F5E895E6 = {isa = PBXBuildFile; fileRef = 5A00079255719882BB9C6E85 /* LeaderboardView.swift */; };
 		FFC5222FEA88DD0240232C04 = {isa = PBXBuildFile; fileRef = 6E9E1B4FC8E307D346B32427 /* MapView.swift */; };
 		6860A2A43AE661941307E1D9 = {isa = PBXBuildFile; fileRef = 7176ED1C6B21DF6686931E3D /* NearbyChurchSheet.swift */; };
@@ -74,6 +75,7 @@
 		DE18EB83D9D745DF12C63040 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
 		9F5139185B8F2708D1055C2A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInCelebrationView.swift; sourceTree = "<group>"; };
 		3A2C4DCD1F4812819155AF5A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchDetailView.swift; sourceTree = "<group>"; };
+		52CD57388E50FFF5C1CF9C20 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		5A00079255719882BB9C6E85 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		6E9E1B4FC8E307D346B32427 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		7176ED1C6B21DF6686931E3D = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyChurchSheet.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				840FADAD86DF6C40ADFE6AD8 /* Badges */,
 				97936C7EBF4681C8B7B44235 /* CheckIn */,
 				31F6357342D63B086E9E375A /* ChurchDetail */,
+				6622E81795438A9F3CB766CF /* Collection */,
 				CD26A4DAC8422F5315816E4C /* Leaderboard */,
 				1CC451A977A3FCF889142C45 /* Map */,
 				E304E7730958EE906BB34314 /* Onboarding */,
@@ -237,6 +240,14 @@
 				3A2C4DCD1F4812819155AF5A /* ChurchDetailView.swift */,
 			);
 			path = ChurchDetail;
+			sourceTree = "<group>";
+		};
+		6622E81795438A9F3CB766CF = {
+			isa = PBXGroup;
+			children = (
+				52CD57388E50FFF5C1CF9C20 /* CollectionView.swift */,
+			);
+			path = Collection;
 			sourceTree = "<group>";
 		};
 		CD26A4DAC8422F5315816E4C = {
@@ -387,6 +398,7 @@
 				53AB50512F55CCA202F5C3F4,
 				201568721830C298237B65E6,
 				5B132C9001EC2BBEFB2C4D1C,
+				D63A5101722EA5077A2BDCB7,
 				08D700CC5AA09406F5E895E6,
 				FFC5222FEA88DD0240232C04,
 				6860A2A43AE661941307E1D9,
