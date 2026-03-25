@@ -4,6 +4,8 @@ import Combine
 
 @MainActor
 final class LocationService: NSObject, ObservableObject {
+    static let shared = LocationService()
+
     @Published var currentLocation: CLLocation?
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
     @Published var isAuthorized: Bool = false
@@ -41,6 +43,16 @@ final class LocationService: NSObject, ObservableObject {
     func isWithinCheckInRange(of church: Church) -> Bool {
         guard let distance = distanceTo(church.coordinate) else { return false }
         return distance <= Self.checkInRadius
+    }
+
+    func formattedDistance(to coordinate: CLLocationCoordinate2D) -> String {
+        guard let distance = distanceTo(coordinate) else { return "Unknown" }
+        if distance < 1000 {
+            return String(format: "%.0f m", distance)
+        } else {
+            let miles = distance / 1609.34
+            return String(format: "%.1f mi", miles)
+        }
     }
 }
 

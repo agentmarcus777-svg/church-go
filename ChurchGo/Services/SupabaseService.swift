@@ -1,4 +1,8 @@
 import Foundation
+import Combine
+// import Supabase  // using local shim
+
+// SupabaseAuthUser defined in SupabaseShim.swift
 
 @MainActor
 final class SupabaseService: ObservableObject {
@@ -6,7 +10,7 @@ final class SupabaseService: ObservableObject {
 
     let client: SupabaseClient
 
-    // TODO: Replace with actual Supabase project credentials
+    // Configure these with your production Supabase project credentials.
     private static let supabaseURL = URL(string: "https://your-project.supabase.co")!
     private static let supabaseAnonKey = "your-anon-key"
 
@@ -19,7 +23,7 @@ final class SupabaseService: ObservableObject {
 
     // MARK: - Auth
 
-    var currentUser: User? {
+    var currentUser: SupabaseAuthUser? {
         get async {
             try? await client.auth.session.user
         }

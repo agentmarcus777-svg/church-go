@@ -1,16 +1,13 @@
 import Foundation
-import SwiftUI
 import MapKit
 import Combine
+import SwiftUI
 
 @MainActor
 final class MapViewModel: ObservableObject {
     @Published var churches: [Church] = []
     @Published var selectedChurch: Church?
-    @Published var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
-        span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08)
-    )
+    @Published var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
     @Published var searchText: String = ""
     @Published var isLoading: Bool = false
     @Published var visitedChurchIDs: Set<UUID> = []
@@ -19,15 +16,30 @@ final class MapViewModel: ObservableObject {
     let locationService: LocationService
     private let churchService: ChurchService
 
-    init(locationService: LocationService, churchService: ChurchService) {
-        self.locationService = locationService
-        self.churchService = churchService
+    init(locationService: LocationService? = nil, churchService: ChurchService? = nil) {
+        self.locationService = locationService ?? .shared
+        self.churchService = churchService ?? ChurchService()
+    }
+
+    var filteredChurches: [Church] {
+        guard !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return churches
+        }
+
+        let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        return churches.filter { church in
+            church.name.localizedCaseInsensitiveContains(query)
+                || church.denomination.localizedCaseInsensitiveContains(query)
+                || church.locationSummary.localizedCaseInsensitiveContains(query)
+        }
     }
 
     func loadChurches() async {
         isLoading = true
+        locationService.startUpdating()
+
         if let location = locationService.currentLocation?.coordinate {
-            region.center = location
             await churchService.fetchNearbyChurches(location: location)
         } else {
             churchService.loadMockData()
@@ -39,11 +51,11 @@ final class MapViewModel: ObservableObject {
     func selectChurch(_ church: Church) {
         selectedChurch = church
         withAnimation(Theme.springAnimation) {
-            region = MKCoordinateRegion(
+            cameraPosition = .region(MKCoordinateRegion(
                 center: church.coordinate,
                 latitudinalMeters: 1000,
                 longitudinalMeters: 1000
-            )
+            ))
         }
     }
 
@@ -52,10 +64,11 @@ final class MapViewModel: ObservableObject {
     }
 
     func nearbyChurches(limit: Int = 5) -> [Church] {
-        guard let location = locationService.currentLocation else { return Array(churches.prefix(limit)) }
-        return churches
+        guard let location = locationService.currentLocation else { return Array(filteredChurches.prefix(limit)) }
+
+        return filteredChurches
             .sorted { a, b in
-                let distA = location.distance(from: CLLocation(latitude: a.latitude, longitude: b.longitude))
+                let distA = location.distance(from: CLLocation(latitude: a.latitude, longitude: a.longitude))
                 let distB = location.distance(from: CLLocation(latitude: b.latitude, longitude: b.longitude))
                 return distA < distB
             }
@@ -65,7 +78,7 @@ final class MapViewModel: ObservableObject {
 
     /// For previews
     static var preview: MapViewModel {
-        let vm = MapViewModel(locationService: LocationService(), churchService: ChurchService())
+        let vm = MapViewModel(locationService: LocationService())
         vm.churches = Church.mockList
         vm.visitedChurchIDs = [Church.mockList[0].id, Church.mockList[1].id]
         return vm

@@ -23,7 +23,7 @@ extension Color {
     static let cgBackground = cgIvory
     static let cgSurface = Color.white
     static let cgPrimaryText = cgCharcoal
-    static let cgSecondaryText = Color(hex: 0x8E8E93)
+    static let cgSecondaryText = cgCharcoal.opacity(0.5)
     static let cgSuccess = Color(hex: 0x34C759)
     static let cgWarning = Color(hex: 0xFF9500)
 
@@ -47,7 +47,7 @@ extension Color {
 
     static var cgSunriseGradient: LinearGradient {
         LinearGradient(
-            colors: [cgGold, cgCrimson, cgDeepRed],
+            colors: [cgCrimson, cgGold],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )

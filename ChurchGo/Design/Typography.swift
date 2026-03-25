@@ -67,3 +67,22 @@ extension View {
         self.font(font)
     }
 }
+
+extension Font {
+    static let cgLargeTitle = AppFont.largeTitle
+    static let cgTitle = AppFont.title
+    static let cgTitle2 = AppFont.title2
+    static let cgTitle3 = AppFont.title3
+    static let cgHeadline = AppFont.headline
+    static let cgBody = AppFont.body
+    static let cgCallout = AppFont.callout
+    static let cgSubheadline = AppFont.subheadline
+    static let cgFootnote = AppFont.footnote
+    static let cgCaption = AppFont.caption
+    static let cgCaption2 = AppFont.caption2
+    static let cgXPDisplay = AppFont.xpDisplay
+    static let cgLevelDisplay = AppFont.levelDisplay
+    static let cgStatNumber = AppFont.statNumber
+    static let cgButton = AppFont.button
+    static let cgTabLabel = AppFont.tabLabel
+}

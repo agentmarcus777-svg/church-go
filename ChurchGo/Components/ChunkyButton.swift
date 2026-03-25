@@ -1,10 +1,14 @@
 import SwiftUI
+#if canImport(UIKit)
+import UIKit
+#endif
 
 struct ChunkyButton: View {
     let title: String
     var icon: String? = nil
     var style: ButtonStyle = .primary
     var isLoading: Bool = false
+    var isDisabled: Bool = false
     let action: () -> Void
 
     enum ButtonStyle {
@@ -40,8 +44,10 @@ struct ChunkyButton: View {
 
     var body: some View {
         Button(action: {
+            #if canImport(UIKit)
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
+            #endif
             action()
         }) {
             HStack(spacing: 10) {
@@ -65,6 +71,7 @@ struct ChunkyButton: View {
             .shadow(color: style.shadowColor.opacity(0.5), radius: 0, x: 0, y: isPressed ? 2 : 5)
             .offset(y: isPressed ? 3 : 0)
             .scaleEffect(isPressed ? 0.98 : 1.0)
+            .opacity(isDisabled ? 0.55 : 1.0)
         }
         .buttonStyle(PlainButtonStyle())
         .simultaneousGesture(
@@ -76,7 +83,18 @@ struct ChunkyButton: View {
                     withAnimation(Theme.quickSpring) { isPressed = false }
                 }
         )
-        .disabled(isLoading)
+        .disabled(isLoading || isDisabled)
     }
 }
 
+#Preview {
+    VStack(spacing: 20) {
+        ChunkyButton(title: "Check In", icon: "checkmark.circle.fill", style: .primary) {}
+        ChunkyButton(title: "View Profile", icon: "person.fill", style: .secondary) {}
+        ChunkyButton(title: "Claim Reward", icon: "star.fill", style: .gold) {}
+        ChunkyButton(title: "Sign Out", style: .destructive) {}
+        ChunkyButton(title: "Loading...", style: .primary, isLoading: true) {}
+    }
+    .padding(24)
+    .background(Color.cgBackground)
+}

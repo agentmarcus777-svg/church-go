@@ -1,6 +1,8 @@
 import SwiftUI
+#if canImport(UIKit)
 import UIKit
-
+#endif
+// import SDWebImageSwiftUI  // using placeholder
 
 struct NearbyChurchSheet: View {
     let churches: [Church]
@@ -48,8 +50,10 @@ struct NearbyChurchSheet: View {
                         )
                         .onTapGesture {
                             onSelect(church)
+                            #if canImport(UIKit)
                             let gen = UIImpactFeedbackGenerator(style: .light)
                             gen.impactOccurred()
+                            #endif
                         }
                     }
                 }
@@ -91,7 +95,7 @@ struct NearbyChurchCard: View {
                     AsyncImage(url: photoURL) { image in
                         image.resizable().scaledToFill()
                     } placeholder: {
-                        ProgressView()
+                        Color.gray.opacity(0.3)
                     }
                         .clipShape(RoundedRectangle(cornerRadius: Theme.radiusMD, style: .continuous))
                 } else {

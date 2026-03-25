@@ -1,27 +1,36 @@
 import SwiftUI
 import MapKit
+#if canImport(UIKit)
+import UIKit
+#endif
 
 struct ChurchMapView: View {
-    @StateObject private var viewModel = MapViewModel.preview
+    @StateObject private var viewModel = MapViewModel()
     @State private var showDetail = false
-    @State private var searchText = ""
 
     var body: some View {
         ZStack(alignment: .top) {
             // Map
-            Map(coordinateRegion: $viewModel.region, annotationItems: viewModel.churches) { church in
-                MapAnnotation(coordinate: church.coordinate) {
-                    ChurchPin(
-                        isVisited: viewModel.isVisited(church),
-                        isSelected: viewModel.selectedChurch?.id == church.id
-                    )
-                    .onTapGesture {
-                        viewModel.selectChurch(church)
-                        let gen = UIImpactFeedbackGenerator(style: .light)
-                        gen.impactOccurred()
+            Map(position: $viewModel.cameraPosition) {
+                UserAnnotation()
+
+                ForEach(viewModel.filteredChurches) { church in
+                    Annotation(church.name, coordinate: church.coordinate) {
+                        ChurchPin(
+                            isVisited: viewModel.isVisited(church),
+                            isSelected: viewModel.selectedChurch?.id == church.id
+                        )
+                        .onTapGesture {
+                            viewModel.selectChurch(church)
+                            #if canImport(UIKit)
+                            let gen = UIImpactFeedbackGenerator(style: .light)
+                            gen.impactOccurred()
+                            #endif
+                        }
                     }
                 }
             }
+            .mapStyle(.standard(elevation: .realistic))
             .ignoresSafeArea(edges: .top)
 
             // Search bar overlay
@@ -29,7 +38,7 @@ struct ChurchMapView: View {
                 HStack(spacing: 12) {
                     Image(systemName: "magnifyingglass")
                         .foregroundStyle(Color.cgSecondaryText)
-                    TextField("Search churches...", text: $searchText)
+                    TextField("Search churches...", text: $viewModel.searchText)
                         .font(AppFont.body)
                 }
                 .padding(.horizontal, 16)
@@ -47,7 +56,7 @@ struct ChurchMapView: View {
             VStack {
                 Spacer()
                 NearbyChurchSheet(
-                    churches: viewModel.churches,
+                    churches: viewModel.nearbyChurches(limit: 8),
                     visitedIDs: viewModel.visitedChurchIDs,
                     onSelect: { church in
                         viewModel.selectChurch(church)
@@ -56,6 +65,7 @@ struct ChurchMapView: View {
                 )
             }
         }
+        .background(Color.cgBackground)
         .sheet(isPresented: $showDetail) {
             if let church = viewModel.selectedChurch {
                 ChurchDetailView(church: church, isVisited: viewModel.isVisited(church))
@@ -67,3 +77,6 @@ struct ChurchMapView: View {
     }
 }
 
+#Preview {
+    ChurchMapView()
+}

@@ -1,7 +1,11 @@
 import SwiftUI
+#if canImport(UIKit)
+import UIKit
+#endif
 
 // MARK: - Haptic Feedback
 
+#if canImport(UIKit)
 extension View {
     func hapticOnTap(style: UIImpactFeedbackGenerator.FeedbackStyle = .medium) -> some View {
         self.simultaneousGesture(TapGesture().onEnded {
@@ -15,6 +19,7 @@ extension View {
         }
     }
 }
+#endif
 
 // MARK: - Conditional Modifier
 

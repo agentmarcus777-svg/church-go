@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 @MainActor
 final class LeaderboardViewModel: ObservableObject {
@@ -15,8 +16,21 @@ final class LeaderboardViewModel: ObservableObject {
     func loadLeaderboard() async {
         isLoading = true
         // In production, fetch from Supabase
-        try? await Task.sleep(for: .milliseconds(500))
-        entries = LeaderboardEntry.mockList
+        try? await Task.sleep(nanoseconds: 500_000_000)
+        entries = switch selectedFilter {
+        case .weekly:
+            LeaderboardEntry.mockList
+        case .allTime:
+            LeaderboardEntry.mockList.enumerated().map { index, entry in
+                LeaderboardEntry(
+                    userId: entry.userId,
+                    displayName: entry.displayName,
+                    xp: entry.xp * 3,
+                    level: min(entry.level + 4, 100),
+                    rank: index + 1
+                )
+            }
+        }
         isLoading = false
     }
 

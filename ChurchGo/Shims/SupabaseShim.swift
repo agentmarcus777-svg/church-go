@@ -1,15 +1,48 @@
 import Foundation
 
-final class SupabaseClient {
+final class SupabaseClient: @unchecked Sendable {
     let auth = AuthClient()
 
     init(supabaseURL: URL, supabaseKey: String) {}
+
+    func from(_ table: String) -> QueryBuilder {
+        QueryBuilder()
+    }
 }
 
-final class AuthClient {
+final class QueryBuilder: @unchecked Sendable {
+    func select(_ columns: String = "*") -> QueryBuilder { self }
+    func insert(_ values: Any) -> QueryBuilder { self }
+    func update(_ values: Any) -> QueryBuilder { self }
+    func delete() -> QueryBuilder { self }
+    func eq(_ column: String, value: Any) -> QueryBuilder { self }
+    func ilike(_ column: String, pattern: String) -> QueryBuilder { self }
+    func single() -> QueryBuilder { self }
+    func limit(_ count: Int) -> QueryBuilder { self }
+    func order(_ column: String, ascending: Bool = true) -> QueryBuilder { self }
+    func `in`(_ column: String, value: [Any]) -> QueryBuilder { self }
+
+    func execute<T: Decodable>() async throws -> PostgrestResponse<T> {
+        throw SupabaseError.notConfigured
+    }
+}
+
+struct PostgrestResponse<T: Decodable> {
+    let value: T
+
+    init(value: T) {
+        self.value = value
+    }
+}
+
+enum SupabaseError: Error {
+    case notConfigured
+}
+
+final class AuthClient: @unchecked Sendable {
     var session: Session {
         get async throws {
-            Session(user: User(id: UUID().uuidString))
+            Session(user: SupabaseAuthUser(id: UUID().uuidString))
         }
     }
 
@@ -18,20 +51,20 @@ final class AuthClient {
     func signOut() async throws {}
 }
 
-struct Session {
-    let user: User
+struct Session: Sendable {
+    let user: SupabaseAuthUser
 }
 
-struct User {
+struct SupabaseAuthUser: Sendable {
     let id: String
 }
 
-struct SignInWithIdTokenCredentials {
+struct SignInWithIdTokenCredentials: Sendable {
     let provider: Provider
     let idToken: String
     let nonce: String
 }
 
-enum Provider {
+enum Provider: Sendable {
     case apple
 }

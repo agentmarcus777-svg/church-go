@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 @MainActor
 final class ProfileViewModel: ObservableObject {
@@ -33,7 +34,7 @@ final class ProfileViewModel: ObservableObject {
     func loadProfile() async {
         isLoading = true
         // In production, fetch from Supabase
-        try? await Task.sleep(for: .milliseconds(500))
+        try? await Task.sleep(nanoseconds: 500_000_000)
         isLoading = false
     }
 
